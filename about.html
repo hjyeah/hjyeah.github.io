@@ -1,0 +1,149 @@
+---
+layout: page
+title: "关于"
+description: "Hey, I'm hjyeah."
+header-img: "img/about_bg.jpg"
+---
+
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <blockquote>
+        玩玩博客，走走逛逛；
+        世界那么大，多走走看看。
+    </blockquote>
+	
+	
+    小和山下，以便以谢<br>
+    <br>
+
+    <p style="text-align:right;">
+        —— <span>yanhaojie</span>
+    </p>
+
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote>
+        About Love 
+    </blockquote>
+
+    <p>
+        Love is patient, love is kind. It does not envy, it does not boast, it is not proud. 
+		Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up,
+		Love is never tired of waiting; love is kind; love has no envy; love has no high opinion of itself, love has no pride;
+    </p>
+
+    <p>
+		It is not rude, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. 
+		Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil;
+		Love's ways are ever fair, it takes no thought for itself; it is not quickly made angry, it takes no account of evil;
+    </p>
+	
+	<p>
+		Love does not delight in evil but rejoices with the truth. 
+		Rejoiceth not in iniquity, but rejoiceth in the truth;
+		It takes no pleasure in wrongdoing, but has joy in what is true;
+	</p>
+	
+	<p>
+		It always protects, always trusts, always hopes, always perseveres. 
+		Beareth all things, believeth all things, hopeth all things, endureth all things.
+		Love has the power of undergoing all things, having faith in all things, hoping all things.
+	</p>
+
+	<p>
+		Love never fails.
+	</p>
+	
+    <p style="text-align:right;">
+    -- Bible
+    </p>
+
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+<div class="comment">
+    <div class="ds-thread"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
+    data-title="{{page.title}}"
+    data-url="{{site.url}}/about/"></div>
+</div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
