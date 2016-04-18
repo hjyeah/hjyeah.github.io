@@ -2,7 +2,7 @@
 layout:     post
 title:      "版本名称的含义与区别"
 subtitle:   "关于BETA、RC、ALPHA、Release、GA等版本号的意义"
-date:       2015-04-18
+date:       2016-04-18
 author:     "hj_yeah"
 header-img: "img/post-bg-version.jpg"
 tags:
