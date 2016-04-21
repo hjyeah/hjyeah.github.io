@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "oracle中部分函数的用法摘要以及"
+title:      "oracle中部分函数的用法摘要以及用到的一些日常方法"
 subtitle:   "记录平时开发中碰到的函数用法、介绍等等"
 date:       2016-04-20
 author:     "hj_yeah"
