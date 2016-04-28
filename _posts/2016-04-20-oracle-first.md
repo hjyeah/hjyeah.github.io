@@ -14,6 +14,7 @@ tags:
 *  [instr()](#instr)
 *  [substr()](#substr)
 *  [to_char()](#tochar)
+*  [case()](#case)
 
 #### instr函数
 instr函数对字符串进行判断，判断其是否含有指定的字符,返回被查找到的指定的字符的位置     
@@ -35,3 +36,37 @@ SUBSTR()函数:从给定的字符表达式或备注字段中返回一个子字�
 
 #### to_char函数
 有效的工具用于把各种数据类型（日期/时间，int，float，numeric）转换成格式化的字符串以及反过来从格式化的字符串转换成原始的数据类型;参考[相关链接](http://www.cnblogs.com/reborter/archive/2008/11/28/1343195.html)
+
+#### case函数
+Case具有两种格式:简单Case函数和Case搜索函数。基本格式：case ... when... then...else....end   
+> 参考链接：[case文章](http://www.cnblogs.com/eshizhan/archive/2012/04/06/2435493.html)
+
+> 简单Case函数    
+CASE sex  
+WHEN '1' THEN '男'  
+WHEN '2' THEN '女'  
+ELSE '其他' END  
+
+> Case搜索函数     
+CASE WHEN sex = '1' THEN '男'  
+WHEN sex = '2' THEN '女'  
+ELSE '其他' END   
+
+> GROUP BY CASE WHEN 用法  
+SELECT  
+CASE WHEN salary <= 500 THEN '1'  
+WHEN salary > 500 AND salary <= 600  THEN '2'  
+WHEN salary > 600 AND salary <= 800  THEN '3'  
+WHEN salary > 800 AND salary <= 1000 THEN '4'  
+ELSE NULL END salary_class, -- 别名命名  
+COUNT(*)  
+FROM    Table_A  
+GROUP BY  
+CASE WHEN salary <= 500 THEN '1'  
+WHEN salary > 500 AND salary <= 600  THEN '2'  
+WHEN salary > 600 AND salary <= 800  THEN '3'  
+WHEN salary > 800 AND salary <= 1000 THEN '4'  
+ELSE NULL END;  
+
+
+

@@ -8,7 +8,7 @@ header-img: "img/post-bg-version.jpg"
 tags:
     - 开发常识
 ---
-> just play.   
+> just play.  顺便推荐个MD学习的地址：[markdown](http://joinwee.com/lesson/10/)
 
 I. [ALPHA](#alpha)   
 II. [BETA](#beta)   
