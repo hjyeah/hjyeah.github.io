@@ -28,3 +28,4 @@ tags:
 * Ctrl + X 删除一行
 * Ctrl + W 选中某个词
 * Ctrl + Shift + 空格 表达式转换
+* Ctrl + J 显示语句的快速显示方式
