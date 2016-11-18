@@ -15,6 +15,7 @@ tags:
 *  [substr()](#substr)
 *  [to_char()](#tochar)
 *  [case()](#case)
+*  [REGEXP_LIKE](#REGEXP_LIKE)
 
 #### instr函数
 instr函数对字符串进行判断，判断其是否含有指定的字符,返回被查找到的指定的字符的位置     
@@ -67,6 +68,10 @@ WHEN salary > 500 AND salary <= 600  THEN '2'
 WHEN salary > 600 AND salary <= 800  THEN '3'  
 WHEN salary > 800 AND salary <= 1000 THEN '4'  
 ELSE NULL END;  
+
+#### REGEXP_LIKE正则
+> 正则过滤非数字
+REGEXP_LIKE('1.1', '^[0-9]+\.{0,1}[0-9]*$') 
 
 
 

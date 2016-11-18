@@ -1,0 +1,49 @@
+---
+layout:     post
+title:      "sql语句优化"
+subtitle:   "语句优化"
+date:       2016-04-20
+author:     "hj_yeah"
+header-img: "img/post-bg-sql-oracle.jpg"
+tags:
+    - oracle
+---
+
+> dba sql
+
+*  in和exists的效率区别[参考](http://www.cnblogs.com/tiantiansunny/p/3555986.html)网址
+   In:是把外表和内表做Hash 连接，而exists 是对外表作loop 循环，每次loop循环再对内表进行查询。
+   当查询两个表的大小相当时，用In 和 exists差别不大。
+   如果两个表中一个表较小，一个表较大，那么子查询表大的用exists,子查询表小的用In，效率会高的。
+结论:IN适合于外表大而内表小的情况；EXISTS适合于外表小而内表大的情况，这样效率会高的
+* Not in 和Not Exists 的 效率
+  如果查询语句使用了Not In,那么内外表全部进行扫描，没有乃至索引
+  Not Exist用到子表中的索引进行查询，所以无论两个表中哪个表大，Not exists 都要比Not in 要快。
+
+
+  decode sign trunc
+
+  trunc( number, [ decimal_places ] )
+  number 要截取的数字.
+  decimal_places 要保留的小数位. 这个参数必须是个整数. 如果此参数缺省，默认保留0位小数
+
+  两种case
+     CASE WHEN condition THEN return_expr
+              [WHEN condition THEN return_expr]
+              ...
+    ELSE else_expr
+    END
+
+    CASE express WHEN condition THEN return_expr
+              [WHEN condition THEN return_expr]
+              ...
+    ELSE else_expr
+    END
+
+  一个字段，decode函数可以完全改写简单case；
+    多个字段，需要复杂的case，方可。
+    正常情况下：CASE的简单表达式写法效率最高，然后是CASE的另一种写法，DECODE效率最低
+
+sql优化之索引：
+1.  推荐文章[链接1](http://tech.meituan.com/mysql-index.html) ----索引的最左匹配特性。
+2.  
