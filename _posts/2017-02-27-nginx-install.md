@@ -66,6 +66,21 @@ tags:
 **sudo systemctl restart nginx**       
 
 如果只是简单的修改了nginx的配置，可以重新加载nginx      
-**sudo systemctl reload nginx**     
+**sudo systemctl reload nginx**  
+
+##### step five
+几个重要的nginx配置文件描述    
+1. /etc/nginx : nginx配置文件的根目录    
+2. /etc/nginx/nginx.conf: nginx全局配置文件      
+3. /etc/nginx/sites-avaliable:       
+4. /etc/nginx/sites-enabled: 此目录下的文件一般直接链接到3中的文件夹     
+5. /etc/nginx/snippets: 此目录下的文件主要包含片段文件，提供给第三方include，方便重构管理       
+
+***  
+
+日志文件：     
+1. /var/log/nginx/access.log     
+2. /var/log/nginx/error.log     
+
 
 
